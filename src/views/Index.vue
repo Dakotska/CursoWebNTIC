@@ -4,20 +4,25 @@
 
 <template>
     <main id="Contenido">
-        <section id="Inicio">
-            <a href="https://github.com/Dakotska/CursoWebNTIC"><span>De</span> desarrolladores <span>para</span> futuros desarrolladores</a>
-            <h1>Curso Orientativo para Estudiantes</h1>
-            <h2>Tu hardware ideal para LCC</h2>
-            <p>Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.</p>
-            <div>
-                <router-link class="button">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
-                <router-link class="button">Información</router-link> <!--Falta pagina para enlazar el to=-->
+        <section id="Inicio" class="hero">
+            <div class="hero-div-izq">
+                <a href="https://github.com/Dakotska/CursoWebNTIC" class="hero-badge">
+                    <span>DE</span> DESARROLLADORES <span>PARA</span> FUTUROS DESARROLLADORES
+                </a>
+                <h1 class="hero-title">Curso Orientativo para <span>Estudiantes</span></h1>
+                <p class="hero-text">Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.</p>
+                <div class="hero-buttons">
+                    <router-link class="hero-button-primary">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
+                    <a href="#Temas" class="hero-button-secondary">Información</a> <!--Falta pagina para enlazar el to=-->
+                </div>
             </div>
-            <img src="https://placehold.co/128x128" alt="">
+            <div class="hero-div-der">
+                <img src="https://placehold.co/128x128" alt="" class="hero-decorative-img">
+            </div>
             <hr>
             <p>Proyecto creado por y para la comunidad.</p>
-            <a href="https://cc.unison.mx/"><img src="../assets/images/LogoUnisonBlanco.png" alt="Logo LCC"></a>
-            <a href="https://www.unison.mx/"><img src="../assets/images/LogoLCCBlanco.png" alt="Logo Unison"></a>
+            <a href="https://cc.unison.mx/"><img src="../assets/images/LogoUnisonBlanco.png" alt="Logo LCC" class="imagen imagen-unison"></a>
+            <a href="https://www.unison.mx/"><img src="../assets/images/LogoLCCBlanco.png" alt="Logo Unison" class="imagen imagen-unison"></a>
         </section>
 
         <section id="Temas">
