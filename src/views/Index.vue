@@ -10,14 +10,14 @@
             <h2>Tu hardware ideal para LCC</h2>
             <p>Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.</p>
             <div>
-                <a class="button">Comenzar</a> <!--Falta pagina para enlazar el href-->
-                <a class="button">Información</a> <!--Falta pagina para enlazar el href-->
+                <router-link class="button">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
+                <router-link class="button">Información</router-link> <!--Falta pagina para enlazar el to=-->
             </div>
             <img src="https://placehold.co/128x128" alt="">
             <hr>
             <p>Proyecto creado por y para la comunidad.</p>
-            <a href="https://cc.unison.mx/"><img src="../media/LogoLCCBlanco.png" alt="Logo LCC"></a>
-            <a href="https://www.unison.mx/"><img src="../media/LogoUnisonBlanco.png" alt="Logo Unison"></a>
+            <a href="https://cc.unison.mx/"><img src="../assets/images/LogoUnisonBlanco.png" alt="Logo LCC"></a>
+            <a href="https://www.unison.mx/"><img src="../assets/images/LogoLCCBlanco.png" alt="Logo Unison"></a>
         </section>
 
         <section id="Temas">
@@ -41,7 +41,7 @@
             <div>
                 <h2>Temario del curso</h2>
                 <p>Encuentra todos los temas impartidos en el curso, junto a su información detallada y su orden</p>
-                <img src="../media/LogoLCCBlanco.png" alt="Logo LCC Opaco">
+                <img src="../assets/images/LogoLCCBlanco.png" alt="Logo LCC Opaco">
             </div>
             <div>
                 <div>
@@ -149,7 +149,7 @@
             <img src="https://placehold.co/128x128" alt="">
             <div>
                 <h2>¡Comienza el curso ahora!</h2>
-                <a class="button">Comenzar</a> <!--Falta pagina para enlazar el href-->
+                <router-link class="button">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
             </div>
         </section>
     </main>
