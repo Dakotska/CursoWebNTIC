@@ -7,7 +7,7 @@
         <section id="Inicio" class="hero">
             <div class="hero-div-izq">
                 <a href="https://github.com/Dakotska/CursoWebNTIC" class="hero-badge">
-                    <span>DE</span> DESARROLLADORES <span>PARA</span> FUTUROS DESARROLLADORES
+                    <span>BY</span> LCC
                 </a>
                 <h1 class="hero-title">Curso Orientativo para <span>Estudiantes</span></h1>
                 <p class="hero-text">Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.</p>
@@ -20,7 +20,7 @@
                 <img src="https://placehold.co/128x128" alt="" class="hero-decorative-img">
             </div>
             <hr>
-            <p>Proyecto creado por y para la comunidad.</p>
+            <p>De Desarrolladores Para Desarrolladores.</p>
             <a href="https://cc.unison.mx/"><img src="../assets/images/LogoUnisonBlanco.png" alt="Logo LCC" class="imagen imagen-unison"></a>
             <a href="https://www.unison.mx/"><img src="../assets/images/LogoLCCBlanco.png" alt="Logo Unison" class="imagen imagen-unison"></a>
         </section>
