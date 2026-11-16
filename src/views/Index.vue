@@ -1,161 +1,107 @@
 <script setup>
-
 </script>
 
 <template>
-    <main id="Contenido">
-        <section id="Inicio" class="hero">
-            <div class="hero-div-izq">
-                <a href="https://github.com/Dakotska/CursoWebNTIC" class="hero-badge">
-                    <span>BY</span> LCC
-                </a>
-                <h1 class="hero-title">Curso Orientativo para <span>Estudiantes</span></h1>
-                <p class="hero-text">Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.</p>
-                <div class="hero-buttons">
-                    <router-link class="hero-button-primary">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
-                    <a href="#Temas" class="hero-button-secondary">Información</a> <!--Falta pagina para enlazar el to=-->
-                </div>
+    <main class="min-h-dvh min-w-dhv bg-fondo text-texto">
+        <section id="inicio" class="pt-8 border-b border-borde">
+            <a href="https://github.com/Dakotska/CursoWebNTIC" class="text-opaco">
+                <span class="font-bold text-lcc">BY</span> LCC
+            </a>
+            <h1 class="mt-2 text-4xl md:text-6xl font-bold">
+                Curso Orientativo para <span class="text-lcc">Estudiantes</span>
+            </h1>
+            <p class="mt-4 text-lg text-opaco">
+                Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#comenzar" class="text-lcc underline">Comenzar</a>
+                <a href="#temas" class="text-lcc underline">Información</a>
             </div>
-            <div class="hero-div-der">
-                <img src="https://placehold.co/128x128" alt="" class="hero-decorative-img">
-            </div>
-            <hr>
-            <p>De Desarrolladores Para Desarrolladores.</p>
-            <a href="https://cc.unison.mx/"><img src="../assets/images/LogoUnisonBlanco.png" alt="Logo LCC" class="imagen imagen-unison"></a>
-            <a href="https://www.unison.mx/"><img src="../assets/images/LogoLCCBlanco.png" alt="Logo Unison" class="imagen imagen-unison"></a>
+            <img src="https://placehold.co/400x400" alt="" class="mt-8 mx-auto">
+            <p class="mt-6 text-center text-opaco">De Desarrolladores Para Desarrolladores.</p>
         </section>
 
-        <section id="Temas">
-            <h2>Mejores Temas</h2>
-            <p>Encuentra los temas de mayor interés en nuestro curso</p>
-            <div>
-                <h3>Hardware</h3>
-            </div>
-            <div>
-                <h3>Marcas</h3>
-            </div>
-            <div>
-                <h3>Modelos</h3>
-            </div>
-            <div>
-                <h3>Gamas</h3>
+        <section id="temas" class="py-12 border-b border-borde">
+            <h2 class="text-3xl font-bold">Mejores Temas</h2>
+            <p class="mt-2 text-opaco">Encuentra los temas de mayor interés en nuestro curso</p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Hardware</h3></div>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Marcas</h3></div>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Modelos</h3></div>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Gamas</h3></div>
             </div>
         </section>
 
-        <section id="Indice">
-            <div>
-                <h2>Temario del curso</h2>
-                <p>Encuentra todos los temas impartidos en el curso, junto a su información detallada y su orden</p>
-                <img src="../assets/images/LogoLCCBlanco.png" alt="Logo LCC Opaco">
-            </div>
-            <div>
-                <div>
-                    <h3><span>1</span> Arquitectura y Hardware</h3>
-                    <p>El objetivo de este apartado es que la persona pueda conocer lo más importante de lo que compone a una computadora, además de los estándares actuales. Esto para que sepan a qué le tienen que prestar más detalle al momento de la compra.</p>
+        <section id="indice" class="py-12 border-b border-borde">
+            <h2 class="text-3xl font-bold">Temario del curso</h2>
+            <p class="mt-2 text-opaco">Encuentra todos los temas impartidos en el curso, junto a su información detallada y su orden</p>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">1</span> Arquitectura y Hardware</h3>
+                    <p class="mt-2 text-opaco">El objetivo de este apartado es que la persona pueda conocer lo más importante de lo que compone a una computadora, además de los estándares actuales.</p>
                 </div>
-                <div>
-                    <h3><span>2</span> Ecosistemas y Marcas</h3>
-                    <p>El objetivo de este apartado es dar a conocer las marcas más populares y de “buena fama” para que conozcan las opciones que tienen y qué buscar de cada marca según sus necesidades.</p>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">2</span> Ecosistemas y Marcas</h3>
+                    <p class="mt-2 text-opaco">El objetivo de este apartado es dar a conocer las marcas más populares y de “buena fama” para que conozcan las opciones que tienen.</p>
                 </div>
-                <div>
-                    <h3><span>3</span> Gamas y Rendimiento</h3>
-                    <p>El objetivo de este apartado es que sepan la capacidad de cada gama y cómo se separan, para que sepan la gama en la que entra lo máximo que ellos quieren realizar.</p>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">3</span> Gamas y Rendimiento</h3>
+                    <p class="mt-2 text-opaco">El objetivo de este apartado es que sepan la capacidad de cada gama y cómo se separan.</p>
                 </div>
-                <div>
-                    <h3><span>4</span> Perfiles de Uso</h3>
-                    <p>El objetivo del apartado es un poco separar las líneas de las laptop vistas antes en estos nuevos 4 tipos de uso y que sepan categorizarse en lo que quieren.</p>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">4</span> Perfiles de Uso</h3>
+                    <p class="mt-2 text-opaco">El objetivo del apartado es separar las laptops en cuatro tipos de uso para que sepan categorizarse.</p>
                 </div>
-                <div>
-                    <h3><span>5</span> Equipamiento y Características Externas</h3>
-                    <p>El objetivo del apartado es que sepan qué tomar en cuenta al ver equipo en cada estado, al momento de la compra.</p>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">5</span> Equipamiento y Características Externas</h3>
+                    <p class="mt-2 text-opaco">El objetivo del apartado es que sepan qué tomar en cuenta al ver equipo en cada estado, al momento de la compra.</p>
                 </div>
-                <div>
-                    <h3><span>6</span> Evaluación Final</h3>
-                    <p>El objetivo de este apartado es que conozcan otros detalles que pueden llegar a tomar en cuenta según sus necesidades, y los estándares actuales en cada uno.</p>
+                <div class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <h3 class="font-semibold"><span class="text-lcc">6</span> Evaluación Final</h3>
+                    <p class="mt-2 text-opaco">El objetivo de este apartado es que conozcan otros detalles que pueden tomar en cuenta según sus necesidades.</p>
                 </div>
             </div>
         </section>
 
-        <section id="Colaboradores">
-            <h2>Colaboradores del proyecto</h2>
-            <p>Conoce a los creadores de este curso orientativo.</p>
-            <article>
-                <img src="https://placehold.co/64x64" alt="Foto del Estudiante Ángel Barragán">
-                <h3>Ángel Adrián Barragán Ruiz</h3>
-                <p>Desarrollador y Diseñador Principal</p>
-                <dl>
-                    <div>
-                        <dt>Expediente</dt>
-                        <dd>226203625</dd>
-                    </div>
-                    <div>
-                        <dt>Correo</dt>
-                        <dd><a href="mailto:a226203625@unison.mx">a226203625@unison.mx</a></dd>
-                    </div>
-                </dl>
-            </article>
-            <article>
-                <img src="https://placehold.co/64x64" alt="Foto del Estudiante Khristo Rodríguez">
-                <h3>Khristo Ricardo Rodríguez Valencia</h3>
-                <p>Estratega de Contenido y Diseñador Instruccional</p>
-                <dl>
-                    <div>
-                        <dt>Expediente</dt>
-                        <dd>226201094</dd>
-                    </div>
-                    <div>
-                        <dt>Correo</dt>
-                        <dd><a href="mailto:a226201094@unison.mx">a226201094@unison.mx</a></dd>
-                    </div>
-                </dl>
-            </article>
-            <article>
-                <img src="https://placehold.co/64x64" alt="Foto del Estudiante Sergio Silva">
-                <h3>Sergio Gabriel Silva Contreras</h3>
-                <p>Analista Técnico de Hardware</p>
-                <dl>
-                    <div>
-                        <dt>Expediente</dt>
-                        <dd>226202356</dd>
-                    </div>
-                    <div>
-                        <dt>Correo</dt>
-                        <dd><a href="mailto:a226202356@unison.mx">a226202356@unison.mx</a></dd>
-                    </div>
-                </dl>
-            </article>
-            <article>
-                <img src="https://placehold.co/64x64" alt="Foto del Maestro Adolfo Castillo Navarro">
-                <h3>M.G.T.I. Adolfo Castillo Navarro</h3>
-                <p>Supervisor y Evaluador</p>
-                <dl>
-                    <div>
-                        <dt>Correo</dt>
-                        <dd><a href="mailto:adolfo.castillo@unison.mx">adolfo.castillo@unison.mx</a></dd>
-                    </div>
-                </dl>
-            </article>
+        <section id="colaboradores" class="py-12 border-b border-borde">
+            <h2 class="text-3xl font-bold">Colaboradores del proyecto</h2>
+            <p class="mt-2 text-opaco">Conoce a los creadores de este curso orientativo.</p>
+            <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                <article class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <img src="https://placehold.co/64x64" alt="Foto de Ángel Barragán" class="rounded-full">
+                    <h3 class="mt-4 font-semibold">Ángel Adrián Barragán Ruiz</h3>
+                    <p class="text-sm text-opaco">Desarrollador y Diseñador Principal</p>
+                </article>
+                <article class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <img src="https://placehold.co/64x64" alt="Foto de Khristo Rodríguez" class="rounded-full">
+                    <h3 class="mt-4 font-semibold">Khristo Ricardo Rodríguez Valencia</h3>
+                    <p class="text-sm text-opaco">Estratega de Contenido y Diseñador Instruccional</p>
+                </article>
+                <article class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <img src="https://placehold.co/64x64" alt="Foto de Sergio Silva" class="rounded-full">
+                    <h3 class="mt-4 font-semibold">Sergio Gabriel Silva Contreras</h3>
+                    <p class="text-sm text-opaco">Analista Técnico de Hardware</p>
+                </article>
+                <article class="rounded-lg border border-borde bg-tarjeta p-6">
+                    <img src="https://placehold.co/64x64" alt="Foto del maestro Adolfo Castillo" class="rounded-full">
+                    <h3 class="mt-4 font-semibold">M.G.T.I. Adolfo Castillo Navarro</h3>
+                    <p class="text-sm text-opaco">Supervisor y Evaluador</p>
+                </article>
+            </div>
         </section>
 
-        <section id="Info">
-            <h2>Información del proyecto</h2>
-            <p>Conoce información detallada sobre este proyecto.</p>
-            <div>
-                <p>Este proyecto forma parte de la materia de Competencia Digital, donde nos propusimos crear un proyecto el cual beneficiara de alguna manera a nuestra comunidad de LCC. Para ello nos juntamos tres estudiantes de nuevo ingreso e investigamos sobre todo el hardware actual y para hacerlo más práctico hicimos un curso web con toda la información recopilada usando tecnologías como html, css, js, vue, vite, nodejs, npm, python, vercel, supabase, git, github y vscode.</p>
-            </div>
-            <div>
-                <img src="https://skillicons.dev/icons?i=html,css,js,vue,vite,nodejs,npm,python,vercel,supabase,git,github,vscode&theme=dark" alt="Iconos de herramientas utilizadas">
-            </div>
-            <p>¡Gracias por tomarte el tiempo de ver nuestro proyecto!</p>
-            <p>Nos ayudarías mucho dándole 🌟 en <a href="https://github.com/Dakotska/CursoWebNTIC">github</a>.</p>
+        <section id="info" class="py-12 border-b border-borde">
+            <h2 class="text-3xl font-bold">Información del proyecto</h2>
+            <p class="mt-2 text-opaco">Conoce información detallada sobre este proyecto.</p>
+            <p class="mt-6">Este proyecto forma parte de la materia de Competencia Digital, donde nos propusimos crear un proyecto que beneficiara de alguna manera a nuestra comunidad de LCC. Para ello investigamos sobre el hardware actual y hicimos un curso web con toda la información recopilada.</p>
+            <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,vue,vite,nodejs,npm,python,vercel,supabase,git,github&theme=dark" alt="Iconos de herramientas utilizadas" class="mt-6">
+            <p class="mt-6">¡Gracias por tomarte el tiempo de ver nuestro proyecto!</p>
+            <p class="mt-2">Nos ayudaría mucho dándole 🌟 en <a href="https://github.com/Dakotska/CursoWebNTIC" class="text-lcc underline">GitHub</a>.</p>
         </section>
 
-        <section id="Comenzar">
-            <img src="https://placehold.co/128x128" alt="">
-            <div>
-                <h2>¡Comienza el curso ahora!</h2>
-                <router-link class="button">Comenzar</router-link> <!--Falta pagina para enlazar el to=-->
-            </div>
+        <section id="comenzar" class="py-12 text-center">
+            <img src="https://placehold.co/128x128" alt="" class="mx-auto">
+            <h2 class="mt-6 text-3xl font-bold">¡Comienza el curso ahora!</h2>
         </section>
     </main>
 </template>
