@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
 :root {
+    color-scheme: light;
     --fondo: #ffffff;
+    --tarjeta: #f3f4f6;
+    --borde: #e5e7eb;
     --texto: #1f2937;
     --opaco: #6b7280;
     --lcc: #0ea9e7;
@@ -9,20 +12,48 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
+        color-scheme: dark;
         --fondo: #272727;
+        --tarjeta: #303030;
+        --borde: #3f3f46;
         --texto: #d3d4d5;
         --opaco: #979797;
     }
 }
 
 @theme {
-    --color-fondo: #ffffff;
-    --color-texto: #1f2937;
-    --color-opaco: #6b7280;
-    --color-lcc: #0ea9e7;
+    /* Quita los breakpoints por defecto y usa solo los tuyos (min-width) */
+    --breakpoint-*: initial;
+    --breakpoint-xxs: 320px;
+    --breakpoint-xs: 375px;
+    --breakpoint-sm: 425px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1440px;
 
     --font-principal: "Montserrat", sans-serif;
     --font-secundaria: "Roboto", sans-serif;
     --font-secundaria-con: "Roboto Condensed", sans-serif;
-    --font-secundaria-mono: "Roboto Mono", sans-serif;
+    --font-secundaria-mono: "Roboto Mono", monospace;
+}
+
+/* inline: las utilidades usan var(--fondo) directamente, así el modo oscuro sí aplica */
+@theme inline {
+    --color-fondo: var(--fondo);
+    --color-tarjeta: var(--tarjeta);
+    --color-borde: var(--borde);
+    --color-texto: var(--texto);
+    --color-opaco: var(--opaco);
+    --color-lcc: var(--lcc);
+
+    --font-sans: var(--font-principal);
+    --font-mono: var(--font-secundaria-mono);
+}
+
+@layer base {
+    html,
+    body {
+        background-color: var(--fondo);
+        color: var(--texto);
+    }
 }

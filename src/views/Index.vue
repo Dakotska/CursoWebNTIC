@@ -1,107 +1,197 @@
 <script setup>
+import AppHeader from '../components/header.vue'
+import AppFooter from '../components/footer.vue'
+
+const numero = (i) => String(i + 1).padStart(2, '0')
+
+const temario = [
+    { titulo: 'Arquitectura y hardware', descripcion: 'Conoce los componentes principales de una computadora y los estándares actuales.' },
+    { titulo: 'Ecosistemas y marcas', descripcion: 'Descubre las marcas más populares y reconocidas, y las opciones que tienes.' },
+    { titulo: 'Gamas y rendimiento', descripcion: 'Entiende qué puede hacer cada gama de equipos y en qué se diferencian.' },
+    { titulo: 'Perfiles de uso', descripcion: 'Clasifica las laptops en cuatro perfiles de uso para saber cuál necesitas.' },
+    { titulo: 'Equipamiento y características externas', descripcion: 'Aprende qué revisar al comprar según el estado del equipo: nuevo, usado o reacondicionado.' },
+    { titulo: 'Evaluación final', descripcion: 'Revisa otros detalles que puedes considerar según tus necesidades.' },
+]
 </script>
 
 <template>
-    <main class="min-h-dvh min-w-dhv bg-fondo text-texto">
-        <section id="inicio" class="pt-8 border-b border-borde">
-            <a href="https://github.com/Dakotska/CursoWebNTIC" class="text-opaco">
-                <span class="font-bold text-lcc">BY</span> LCC
-            </a>
-            <h1 class="mt-2 text-4xl md:text-6xl font-bold">
-                Curso Orientativo para <span class="text-lcc">Estudiantes</span>
-            </h1>
-            <p class="mt-4 text-lg text-opaco">
-                Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y la forma en la que estudias.
-            </p>
-            <div class="mt-6 flex flex-wrap gap-3">
-                <a href="#comenzar" class="text-lcc underline">Comenzar</a>
-                <a href="#temas" class="text-lcc underline">Información</a>
-            </div>
-            <img src="https://placehold.co/400x400" alt="" class="mt-8 mx-auto">
-            <p class="mt-6 text-center text-opaco">De Desarrolladores Para Desarrolladores.</p>
-        </section>
+    <AppHeader />
 
-        <section id="temas" class="py-12 border-b border-borde">
-            <h2 class="text-3xl font-bold">Mejores Temas</h2>
-            <p class="mt-2 text-opaco">Encuentra los temas de mayor interés en nuestro curso</p>
-            <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Hardware</h3></div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Marcas</h3></div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Modelos</h3></div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6"><h3 class="font-semibold">Gamas</h3></div>
-            </div>
-        </section>
+    <main class="min-h-dvh bg-fondo text-texto">
+        <!-- HERO -->
+        <section id="inicio" class="relative isolate flex min-h-dvh items-center overflow-hidden px-4 pb-16 pt-28 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:pb-24 md:pt-32 lg:px-16 xl:px-20">
+            <video
+                id="video-fondo"
+                class="absolute inset-0 -z-10 h-full w-full object-cover mask-[linear-gradient(to_bottom,black_70%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+                <source src="../assets/Videos/background.mp4" type="video/mp4" />
+            </video>
 
-        <section id="indice" class="py-12 border-b border-borde">
-            <h2 class="text-3xl font-bold">Temario del curso</h2>
-            <p class="mt-2 text-opaco">Encuentra todos los temas impartidos en el curso, junto a su información detallada y su orden</p>
-            <div class="mt-8 grid gap-4 md:grid-cols-2">
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">1</span> Arquitectura y Hardware</h3>
-                    <p class="mt-2 text-opaco">El objetivo de este apartado es que la persona pueda conocer lo más importante de lo que compone a una computadora, además de los estándares actuales.</p>
-                </div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">2</span> Ecosistemas y Marcas</h3>
-                    <p class="mt-2 text-opaco">El objetivo de este apartado es dar a conocer las marcas más populares y de “buena fama” para que conozcan las opciones que tienen.</p>
-                </div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">3</span> Gamas y Rendimiento</h3>
-                    <p class="mt-2 text-opaco">El objetivo de este apartado es que sepan la capacidad de cada gama y cómo se separan.</p>
-                </div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">4</span> Perfiles de Uso</h3>
-                    <p class="mt-2 text-opaco">El objetivo del apartado es separar las laptops en cuatro tipos de uso para que sepan categorizarse.</p>
-                </div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">5</span> Equipamiento y Características Externas</h3>
-                    <p class="mt-2 text-opaco">El objetivo del apartado es que sepan qué tomar en cuenta al ver equipo en cada estado, al momento de la compra.</p>
-                </div>
-                <div class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <h3 class="font-semibold"><span class="text-lcc">6</span> Evaluación Final</h3>
-                    <p class="mt-2 text-opaco">El objetivo de este apartado es que conozcan otros detalles que pueden tomar en cuenta según sus necesidades.</p>
+            <div class="mx-auto w-full max-w-7xl">
+                <p class="font-mono text-xs uppercase tracking-[0.2em] text-lcc md:text-sm md:tracking-[0.25em]">✦ Hecho para LCC</p>
+
+                <h1 class="mt-6 text-3xl font-bold leading-[1.05] tracking-tight text-texto xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
+                    Curso Orientativo para
+                    <span class="text-lcc">Estudiantes</span>
+                </h1>
+
+                <p class="mt-6 max-w-xl text-base leading-relaxed text-opaco xs:text-lg md:text-xl">
+                    Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y necesidades.
+                </p>
+
+                <div class="mt-8 flex flex-col gap-3 xs:flex-row xs:flex-wrap xs:items-center xs:gap-4">
+                    <a
+                        href="#comenzar"
+                        class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-lcc px-6 py-3 font-mono text-sm uppercase tracking-wider text-gray-900 no-underline shadow-lg shadow-lcc/40 transition hover:brightness-110 xs:w-auto"
+                    >
+                        Comenzar
+                        <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
+                    <a
+                        href="#info"
+                        class="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-lcc/50 px-6 py-3 font-mono text-sm uppercase tracking-wider text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 xs:w-auto"
+                    >
+                        Información
+                        <span class="transition-transform group-hover:translate-x-1">→</span>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="colaboradores" class="py-12 border-b border-borde">
-            <h2 class="text-3xl font-bold">Colaboradores del proyecto</h2>
-            <p class="mt-2 text-opaco">Conoce a los creadores de este curso orientativo.</p>
-            <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <article class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <img src="https://placehold.co/64x64" alt="Foto de Ángel Barragán" class="rounded-full">
-                    <h3 class="mt-4 font-semibold">Ángel Adrián Barragán Ruiz</h3>
-                    <p class="text-sm text-opaco">Desarrollador y Diseñador Principal</p>
-                </article>
-                <article class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <img src="https://placehold.co/64x64" alt="Foto de Khristo Rodríguez" class="rounded-full">
-                    <h3 class="mt-4 font-semibold">Khristo Ricardo Rodríguez Valencia</h3>
-                    <p class="text-sm text-opaco">Estratega de Contenido y Diseñador Instruccional</p>
-                </article>
-                <article class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <img src="https://placehold.co/64x64" alt="Foto de Sergio Silva" class="rounded-full">
-                    <h3 class="mt-4 font-semibold">Sergio Gabriel Silva Contreras</h3>
-                    <p class="text-sm text-opaco">Analista Técnico de Hardware</p>
-                </article>
-                <article class="rounded-lg border border-borde bg-tarjeta p-6">
-                    <img src="https://placehold.co/64x64" alt="Foto del maestro Adolfo Castillo" class="rounded-full">
-                    <h3 class="mt-4 font-semibold">M.G.T.I. Adolfo Castillo Navarro</h3>
-                    <p class="text-sm text-opaco">Supervisor y Evaluador</p>
-                </article>
+        <!-- TEMARIO -->
+        <section id="indice" class="scroll-mt-20 px-4 py-16 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-24 lg:px-16 xl:px-20">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="text-3xl font-bold xs:text-4xl md:text-5xl">
+                    Temario del <span class="text-lcc">curso</span>
+                </h2>
+                <p class="mt-3 max-w-2xl text-opaco">
+                    Revisa los temas del curso, con una descripción de cada uno y el orden en que se abordan.
+                </p>
+
+                <ol class="mt-10 divide-y divide-borde border-y border-borde">
+                    <li
+                        v-for="(tema, i) in temario"
+                        :key="tema.titulo"
+                        class="grid grid-cols-[2.5rem_1fr] gap-x-4 gap-y-2 py-6 sm:grid-cols-[3.5rem_1fr] md:grid-cols-[4rem_1fr_1.5fr] md:items-baseline md:gap-x-6"
+                    >
+                        <span class="row-span-2 text-2xl font-bold tabular-nums text-lcc md:row-span-1">{{ numero(i) }}</span>
+                        <h3 class="text-lg font-semibold xs:text-xl">{{ tema.titulo }}</h3>
+                        <p class="col-start-2 text-opaco md:col-start-auto">{{ tema.descripcion }}</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
-        <section id="info" class="py-12 border-b border-borde">
-            <h2 class="text-3xl font-bold">Información del proyecto</h2>
-            <p class="mt-2 text-opaco">Conoce información detallada sobre este proyecto.</p>
-            <p class="mt-6">Este proyecto forma parte de la materia de Competencia Digital, donde nos propusimos crear un proyecto que beneficiara de alguna manera a nuestra comunidad de LCC. Para ello investigamos sobre el hardware actual y hicimos un curso web con toda la información recopilada.</p>
-            <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,vue,vite,nodejs,npm,python,vercel,supabase,git,github&theme=dark" alt="Iconos de herramientas utilizadas" class="mt-6">
-            <p class="mt-6">¡Gracias por tomarte el tiempo de ver nuestro proyecto!</p>
-            <p class="mt-2">Nos ayudaría mucho dándole 🌟 en <a href="https://github.com/Dakotska/CursoWebNTIC" class="text-lcc underline">GitHub</a>.</p>
+        <!-- COLABORADORES -->
+        <section id="colaboradores" class="border-b border-borde px-4 py-16 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-24 lg:px-16 xl:px-20">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="text-3xl font-bold xs:text-4xl md:text-5xl">
+                    Colaboradores del <span class="text-lcc">proyecto</span>
+                </h2>
+                <p class="mt-3 text-opaco">Conoce a los creadores de este curso orientativo.</p>
+
+                <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <article class="rounded-lg border border-borde bg-tarjeta p-6 transition-colors duration-300 ease-in-out hover:border-lcc">
+                        <img src="https://i.imgur.com/CppaWt9.png" alt="Foto de Ángel Barragán" class="size-16 rounded-full object-cover" />
+                        <h3 class="mt-4 font-semibold">Ángel Adrián Barragán Ruiz</h3>
+                        <p class="text-sm text-opaco">Desarrollador y Diseñador Principal</p>
+                    </article>
+
+                    <article class="rounded-lg border border-borde bg-tarjeta p-6 transition-colors duration-300 ease-in-out hover:border-lcc">
+                        <img src="https://i.imgur.com/Qgm3ey9.png" alt="Foto de Khristo Rodríguez" class="size-16 rounded-full object-cover" />
+                        <h3 class="mt-4 font-semibold">Khristo Ricardo Rodríguez Valencia</h3>
+                        <p class="text-sm text-opaco">Estratega de Contenido Instruccional</p>
+                    </article>
+
+                    <article class="rounded-lg border border-borde bg-tarjeta p-6 transition-colors duration-300 ease-in-out hover:border-lcc">
+                        <img src="https://i.imgur.com/Eb5mzom.png" alt="Foto de Sergio Silva" class="size-16 rounded-full object-cover" />
+                        <h3 class="mt-4 font-semibold">Sergio Gabriel Silva Contreras</h3>
+                        <p class="text-sm text-opaco">Analista Técnico de Hardware</p>
+                    </article>
+
+                    <article class="rounded-lg border border-borde bg-tarjeta p-6 transition-colors duration-300 ease-in-out hover:border-lcc">
+                        <img src="../assets/images/LogoAzul.png" alt="Foto del maestro Adolfo Castillo" class="size-16 rounded-full object-cover" />
+                        <h3 class="mt-4 font-semibold">M.G.T.I. Adolfo Castillo Navarro</h3>
+                        <p class="text-sm text-opaco">Supervisor y Evaluador</p>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <section id="comenzar" class="py-12 text-center">
-            <img src="https://placehold.co/128x128" alt="" class="mx-auto">
-            <h2 class="mt-6 text-3xl font-bold">¡Comienza el curso ahora!</h2>
+        <!-- INFORMACIÓN -->
+        <section id="info" class="scroll-mt-20 border-b border-borde px-4 py-16 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-24 lg:px-16 xl:px-20">
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-12 lg:gap-20">
+                <div class="md:top-24 md:self-start">
+                    <h2 class="text-3xl font-bold xs:text-4xl">
+                        Información del <span class="text-lcc">proyecto</span>
+                    </h2>
+                    <p class="mt-3 text-opaco">Conoce información detallada sobre este proyecto.</p>
+                </div>
+
+                <div class="space-y-6 text-base leading-7 md:text-lg md:leading-8">
+                    <p>
+                        Este proyecto forma parte de la materia de <span class="text-lcc">Competencia Digital</span>, donde nos propusimos crear un proyecto que beneficiara de alguna manera a nuestra comunidad de <span class="text-lcc">LCC</span>. Para ello investigamos sobre el hardware actual e hicimos un curso web con toda la información recopilada.
+                    </p>
+
+                    <div>
+                        <p class="text-sm text-opaco">Herramientas utilizadas</p>
+                        <div class="mt-3 flex justify-center rounded-lg bg-zinc-900 p-5">
+                            <img
+                                src="https://skillicons.dev/icons?i=html,css,js,tailwind,vue,vite,nodejs,npm,python,vercel,supabase,git,github&theme=dark"
+                                alt="Iconos de herramientas utilizadas"
+                                class="h-auto max-w-full"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+
+                    <p>¡Gracias por tomarte el tiempo de ver nuestro proyecto!</p>
+
+                    <p>
+                        Nos ayudaría mucho dándole 🌟 en
+                        <a
+                            href="https://github.com/Dakotska/CursoWebNTIC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-lcc underline underline-offset-4 transition-colors hover:text-texto"
+                        >GitHub</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMENZAR -->
+        <section id="comenzar" class="relative isolate scroll-mt-20 overflow-hidden px-4 py-20 text-center xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-32 lg:px-16 xl:px-20">
+            <img
+                src="../assets/images/FondoLuzEspacio.jpg"
+                alt=""
+                class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
+                loading="lazy"
+            />
+
+            <div class="mx-auto max-w-2xl">
+                <h2 class="text-3xl font-bold xs:text-4xl md:text-5xl">
+                    ¡Comienza el <span class="text-lcc">curso ahora</span>!
+                </h2>
+                <p class="mt-4 text-base text-opaco xs:text-lg">
+                    Empieza por el primer tema y avanza a tu propio ritmo.
+                </p>
+
+                <div class="mt-8 flex justify-center">
+                    <a
+                        href="#indice"
+                        class="inline-flex items-center rounded-full border border-lcc/50 px-6 py-3 font-semibold text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
+                    >
+                        Ver el temario
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
+
+    <AppFooter />
 </template>
