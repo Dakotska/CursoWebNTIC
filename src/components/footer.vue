@@ -1,4 +1,7 @@
 <script setup>
+import { nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 const anio = new Date().getFullYear()
 
 const columnas = [
@@ -6,29 +9,45 @@ const columnas = [
         titulo: 'Curso',
         enlaces: [
             { texto: 'Inicio', href: '#inicio' },
-            { texto: 'Temario', href: '#indice' },
+            { texto: 'Temario', href: '#temario' },
             { texto: 'Comenzar', href: '#comenzar' },
         ],
     },
     {
         titulo: 'Temas',
         enlaces: [
-            { texto: 'Arquitectura y hardware', href: '#indice' },
-            { texto: 'Ecosistemas y marcas', href: '#indice' },
-            { texto: 'Gamas y rendimiento', href: '#indice' },
-            { texto: 'Perfiles de uso', href: '#indice' },
-            { texto: 'Equipamiento', href: '#indice' },
-            { texto: 'Evaluación final', href: '#indice' },
+            { texto: 'Arquitectura y hardware', href: '#temario' },
+            { texto: 'Ecosistemas y marcas', href: '#temario' },
+            { texto: 'Gamas y rendimiento', href: '#temario' },
+            { texto: 'Perfiles de uso', href: '#temario' },
+            { texto: 'Equipamiento', href: '#temario' },
+            { texto: 'Repaso final', href: '#temario' },
         ],
     },
     {
         titulo: 'Proyecto',
         enlaces: [
             { texto: 'Colaboradores', href: '#colaboradores' },
-            { texto: 'Contacto', href: 'mailto:correo@ejemplo.com' },
+            { texto: 'Contacto', href: 'mailto:a226203625@unison.mx' },
         ],
     }
 ]
+
+const route = useRoute()
+const router = useRouter()
+
+const scrollTo = async (href) => {
+    if (href.startsWith('mailto:') || href.startsWith('http')) {
+        window.location.href = href
+        return
+    }
+
+    if (route.path !== '/') {
+        await router.push('/' + href)
+    }
+    await nextTick()
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -36,7 +55,7 @@ const columnas = [
         <div class="mx-auto max-w-7xl px-4 pb-8 pt-14 xxs:px-5 xs:px-6 md:px-16">
             <nav
                 aria-label="Enlaces del pie de página"
-                class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-x-8"
+                class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 md:gap-x-8"
             >
                 <div v-for="columna in columnas" :key="columna.titulo">
                     <h3 class="text-sm font-medium text-opaco">{{ columna.titulo }}</h3>
@@ -44,6 +63,7 @@ const columnas = [
                         <li v-for="enlace in columna.enlaces" :key="enlace.texto">
                             <a
                                 :href="enlace.href"
+                                @click.prevent="scrollTo(enlace.href)"
                                 class="text-sm text-texto no-underline transition-colors hover:text-lcc"
                             >
                                 {{ enlace.texto }}

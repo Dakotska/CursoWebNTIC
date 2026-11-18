@@ -10,8 +10,12 @@ const temario = [
     { titulo: 'Gamas y rendimiento', descripcion: 'Entiende qué puede hacer cada gama de equipos y en qué se diferencian.' },
     { titulo: 'Perfiles de uso', descripcion: 'Clasifica las laptops en cuatro perfiles de uso para saber cuál necesitas.' },
     { titulo: 'Equipamiento y características externas', descripcion: 'Aprende qué revisar al comprar según el estado del equipo: nuevo, usado o reacondicionado.' },
-    { titulo: 'Evaluación final', descripcion: 'Revisa otros detalles que puedes considerar según tus necesidades.' },
+    { titulo: 'Repaso final', descripcion: 'Conclusion y resumen del curso junto a otros detalles que puedes considerar según tus necesidades.' },
 ]
+
+const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -27,7 +31,10 @@ const temario = [
                 muted
                 loop
                 playsinline
+                preload="metadata"
+                poster="../assets/Videos/posterbg.jpg"
             >
+                <source src="../assets/Videos/background.webm" type="video/webm" />
                 <source src="../assets/Videos/background.mp4" type="video/mp4" />
             </video>
 
@@ -40,22 +47,23 @@ const temario = [
                 </h1>
 
                 <p class="mt-6 max-w-xl text-base leading-relaxed text-opaco xs:text-lg md:text-xl">
-                    Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo para la carrera de LCC según tu presupuesto y necesidades.
+                    Un lugar donde conocerás las necesidades de tu próximo equipo de cómputo portátil para la carrera de LCC según tu presupuesto y objetivos.
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 xs:flex-row xs:flex-wrap xs:items-center xs:gap-4">
-                    <a
-                        href="#comenzar"
-                        class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-lcc px-6 py-3 font-mono text-sm uppercase tracking-wider text-gray-900 no-underline shadow-lg shadow-lcc/40 transition hover:brightness-110 xs:w-auto"
+                    <router-link
+                        to="/Curso"
+                        class="group cursor-pointer inline-flex w-full items-center justify-center gap-2 rounded-full bg-lcc px-6 py-3 font-mono text-sm uppercase tracking-wider text-gray-900 no-underline shadow-lg shadow-lcc/40 transition hover:brightness-110 xs:w-auto"
                     >
                         Comenzar
                         <span class="transition-transform group-hover:translate-x-1">→</span>
-                    </a>
+                    </router-link>
                     <a
-                        href="#info"
-                        class="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-lcc/50 px-6 py-3 font-mono text-sm uppercase tracking-wider text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 xs:w-auto"
+                        href="#temario"
+                        @click.prevent="scrollTo('temario')"
+                        class="group cursor-pointer inline-flex w-full items-center justify-center gap-2 rounded-full border border-lcc/50 px-6 py-3 font-mono text-sm uppercase tracking-wider text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 xs:w-auto"
                     >
-                        Información
+                        Más información
                         <span class="transition-transform group-hover:translate-x-1">→</span>
                     </a>
                 </div>
@@ -63,7 +71,7 @@ const temario = [
         </section>
 
         <!-- TEMARIO -->
-        <section id="indice" class="scroll-mt-20 px-4 py-16 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-24 lg:px-16 xl:px-20">
+        <section id="temario" class="scroll-mt-20 px-4 py-16 xxs:px-5 xs:px-6 sm:px-8 md:px-12 md:py-24 lg:px-16 xl:px-20">
             <div class="mx-auto max-w-7xl">
                 <h2 class="text-3xl font-bold xs:text-4xl md:text-5xl">
                     Temario del <span class="text-lcc">curso</span>
@@ -129,7 +137,7 @@ const temario = [
                     <h2 class="text-3xl font-bold xs:text-4xl">
                         Información del <span class="text-lcc">proyecto</span>
                     </h2>
-                    <p class="mt-3 text-opaco">Conoce información detallada sobre este proyecto.</p>
+                    <p class="mt-3 text-opaco">Conoce mas sobre la creacion de este curso.</p>
                 </div>
 
                 <div class="space-y-6 text-base leading-7 md:text-lg md:leading-8">
@@ -152,7 +160,7 @@ const temario = [
                     <p>¡Gracias por tomarte el tiempo de ver nuestro proyecto!</p>
 
                     <p>
-                        Nos ayudaría mucho dándole 🌟 en
+                        Nos ayudarías mucho dándole 🌟 en
                         <a
                             href="https://github.com/Dakotska/CursoWebNTIC"
                             target="_blank"
@@ -182,12 +190,12 @@ const temario = [
                 </p>
 
                 <div class="mt-8 flex justify-center">
-                    <a
-                        href="#indice"
-                        class="inline-flex items-center rounded-full border border-lcc/50 px-6 py-3 font-semibold text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
+                    <router-link
+                        to="/Curso"
+                        class="inline-flex cursor-pointer items-center rounded-full border border-lcc/50 px-6 py-3 font-semibold text-texto no-underline transition hover:border-lcc hover:bg-lcc/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
                     >
-                        Ver el temario
-                    </a>
+                        Comenzar
+                    </router-link>
                 </div>
             </div>
         </section>

@@ -1,15 +1,19 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-// Enlaces a las secciones de Inicio.vue. Cada href debe coincidir con el id de una <section>.
+const route = useRoute()
+const router = useRouter()
+
+// Enlaces a las secciones de Index.vue. Cada href debe coincidir con el id de una <section>.
 const links = [
     { label: 'Inicio', href: '#inicio' },
-    { label: 'Temario', href: '#indice' },
+    { label: 'Temario', href: '#temario' },
     { label: 'Colaboradores', href: '#colaboradores' },
 ]
 
 // Acción principal del encabezado.
-const cta = { label: 'Comenzar', href: '#comenzar' }
+const cta = { label: 'Comenzar', to: '/Curso' }
 
 const menuOpen = ref(false)
 const activeId = ref('inicio')
@@ -27,7 +31,7 @@ const closeMenu = () => {
     menuOpen.value = false
 }
 
-const isActive = (href) => activeId.value === href.slice(1)
+const isActive = (href) => route.path === '/' && activeId.value === href.slice(1)
 
 const handleBreakpoint = (event) => {
     if (event.matches) closeMenu()
@@ -43,13 +47,8 @@ const handleClickOutside = (event) => {
     if (menuOpen.value && !headerEl.value?.contains(event.target)) closeMenu()
 }
 
-onMounted(() => {
-    desktopQuery = window.matchMedia('(min-width: 1024px)')
-    desktopQuery.addEventListener('change', handleBreakpoint)
-    window.addEventListener('keydown', handleKeydown)
-    document.addEventListener('pointerdown', handleClickOutside)
-
-    // Marca como activo el enlace de la sección que cruza el centro de la pantalla.
+const observeSections = () => {
+    observer?.disconnect()
     observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -58,12 +57,24 @@ onMounted(() => {
         },
         { rootMargin: '-45% 0px -50% 0px' }
     )
-
-    const targets = [...links, cta]
-    targets.forEach(({ href }) => {
+    links.forEach(({ href }) => {
         const section = document.querySelector(href)
         if (section) observer.observe(section)
     })
+}
+
+watch(() => route.path, async () => {
+    await nextTick()
+    observeSections()
+})
+
+onMounted(() => {
+    desktopQuery = window.matchMedia('(min-width: 1024px)')
+    desktopQuery.addEventListener('change', handleBreakpoint)
+    window.addEventListener('keydown', handleKeydown)
+    document.addEventListener('pointerdown', handleClickOutside)
+
+    observeSections()
 })
 
 onBeforeUnmount(() => {
@@ -72,6 +83,15 @@ onBeforeUnmount(() => {
     document.removeEventListener('pointerdown', handleClickOutside)
     observer?.disconnect()
 })
+
+const goToSection = async (href) => {
+    closeMenu()
+    if (route.path !== '/') {
+        await router.push('/' + href)
+    }
+    await nextTick()
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -80,22 +100,24 @@ onBeforeUnmount(() => {
         class="sticky top-0 z-50 border-b border-borde bg-fondo px-6 text-texto backdrop-blur md:px-16"
     >
         <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6">
-            <a
-                href="#inicio"
+            <router-link
+                to="/"
                 aria-label="Ir al inicio"
                 class="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-lcc"
                 @click="closeMenu"
             >
                 <img src="/LogoLCC.svg" alt="" class="h-8 w-auto" />
-            </a>
+            </router-link>
 
             <nav aria-label="Principal" class="hidden items-center gap-7 lg:flex">
                 <a
                     v-for="link in links"
                     :key="link.href"
                     :href="link.href"
+                    @click.prevent="goToSection(link.href)"
+                    tabindex="0"
                     :aria-current="isActive(link.href) ? 'location' : null"
-                    class="group relative py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-lcc"
+                    class="group relative cursor-pointer py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-lcc"
                     :class="isActive(link.href) ? 'text-texto' : 'text-opaco hover:text-texto'"
                 >
                     {{ link.label }}
@@ -106,12 +128,12 @@ onBeforeUnmount(() => {
                     ></span>
                 </a>
 
-                <a
-                    :href="cta.href"
-                    class="rounded-full bg-lcc px-5 py-2 text-sm font-semibold text-texto no-underline shadow-lg shadow-lcc/40 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
+                <router-link
+                    :to="cta.to"
+                    class="rounded-full bg-lcc px-5 py-2 text-sm font-semibold text-gray-900 no-underline shadow-lg shadow-lcc/40 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
                 >
                     {{ cta.label }}
-                </a>
+                </router-link>
             </nav>
 
             <button
@@ -157,21 +179,21 @@ onBeforeUnmount(() => {
                     v-for="link in links"
                     :key="link.href"
                     :href="link.href"
+                    @click.prevent="goToSection(link.href)"
                     :aria-current="isActive(link.href) ? 'location' : null"
                     class="flex min-h-11 items-center border-t border-borde px-6 py-3 hover:bg-tarjeta focus-visible:-outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lcc"
                     :class="isActive(link.href) ? 'text-lcc' : ''"
-                    @click="closeMenu"
                 >
                     {{ link.label }}
                 </a>
 
-                <a
-                    :href="cta.href"
-                    class="m-4 rounded-full bg-lcc py-3 text-center font-semibold text-texto shadow-lg shadow-lcc/40 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
+                <router-link
+                    :to="cta.to"
+                    class="m-4 rounded-full bg-lcc py-3 text-center font-semibold text-gray-900 shadow-lg shadow-lcc/40 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lcc"
                     @click="closeMenu"
                 >
                     {{ cta.label }}
-                </a>
+                </router-link>
             </nav>
         </Transition>
     </header>
